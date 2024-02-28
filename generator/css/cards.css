@@ -344,3 +344,42 @@
     margin: 0;
     font-size: 9.5px;
 }
+
+.card-tracker-box {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    width: calc((1.3 * 10.66px) - 1px);
+    height: calc((1.3 * 10.66px) - 2px);
+    margin-bottom: calc(10.66px - (1.3 * 10.66px) + 1px);
+}
+.card-font-size-12 .card-tracker-box {
+    width: calc((1.3 * 12px) - 1px);
+    height: calc((1.3 * 12px) - 2px);
+    margin-bottom: calc(12px - (1.3 * 12px) + 1px);
+}
+.card-font-size-11 .card-tracker-box {
+    width: calc((1.3 * 11px) - 1px);
+    height: calc((1.3 * 11px) - 2px);
+    margin-bottom: calc(11px - (1.3 * 11px) + 1px);
+}
+.card-font-size-10 .card-tracker-box {
+    width: calc((1.3 * 10px) - 1px);
+    height: calc((1.3 * 10px) - 2px);
+    margin-bottom: calc(10px - (1.3 * 10px) + 1px);
+}
+.card-font-size-9 .card-tracker-box {
+    width: calc((1.3 * 9px) - 1px);
+    height: calc((1.3 * 9px) - 2px);
+    margin-bottom: calc(9px - (1.3 * 9px) + 1px);
+}
+.card-font-size-8 .card-tracker-box {
+    width: calc((1.3 * 8px) - 1px);
+    height: calc((1.3 * 8px) - 2px);
+    margin-bottom: calc(8px - (1.3 * 8px) + 1px);
+}
+.card-font-size-smaller .card-tracker-box {
+    width: calc((1.3 * 8.88px) - 1px);
+    height: calc((1.3 * 8.88px) - 2px);
+    margin-bottom: calc(8.88px - (1.3 * 8.88px) + 1px);
+}

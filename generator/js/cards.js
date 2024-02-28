@@ -427,6 +427,24 @@ function card_element_empty(params, card_data, options) {
     return '';
 }
 
+function card_element_tracker(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<div class="card-element card-property-line' + card_font_size_class + '">';
+    result += '   <h4 class="card-property-name">' + params[0] + '</h4>';
+    result += '   <p class="card-p card-property-text"><span class="card-tracker-box"></span>/' + params[1] + '</p>';
+	if (params[2])
+	{
+		result += '   <div style="float:right">';
+		result += '       <h4 class="card-property-name">' + params[2] + '</h4>';
+		result += '       <p class="card-p card-property-text"><span class="card-tracker-box"></span>/' + params[3] + '</p>';
+		result += '   </div>';
+	}
+    result += '</div>';
+    return result;
+}
+
 var card_element_generators = {
     subtitle: card_element_subtitle,
     property: card_element_property,
@@ -451,7 +469,8 @@ var card_element_generators = {
     section: card_element_section,
     disabled: card_element_empty,
     picture: card_element_picture,
-    icon: card_element_inline_icon
+    icon: card_element_inline_icon,
+    tracker: card_element_tracker
 };
 
 // ============================================================================
