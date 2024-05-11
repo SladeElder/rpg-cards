@@ -430,18 +430,41 @@ function card_element_empty(params, card_data, options) {
 function card_element_tracker(params, card_data, options) {
     var card_font_size_class = card_size_class(card_data, options);
 
+    var trackers = Math.floor(params.length / 2);
     var result = "";
-    result += '<div class="card-element card-property-line' + card_font_size_class + '">';
-    result += '   <h4 class="card-property-name">' + params[0] + '</h4>';
-    result += '   <p class="card-p card-property-text"><span class="card-tracker-box"></span>/' + params[1] + '</p>';
-	if (params[2])
-	{
-		result += '   <div style="float:right">';
-		result += '       <h4 class="card-property-name">' + params[2] + '</h4>';
-		result += '       <p class="card-p card-property-text"><span class="card-tracker-box"></span>/' + params[3] + '</p>';
-		result += '   </div>';
-	}
+    result += '<div class="card-element card-property-line' + card_font_size_class + '" style="display:flex;justify-content:space-between;flex-wrap:wrap;">';
+    for (var i = 0; i < trackers; ++i) {
+        result += '   <span>';
+        result += '       <h4 class="card-property-name">' + params[i * 2] + '</h4>';
+        result += '       <p class="card-p card-property-text" style="text-wrap:nowrap;"><span class="card-tracker-box"></span>/' + params[(i * 2) + 1] + '</p>';
+        result += '   </span>';
+    }
     result += '</div>';
+    return result;
+}
+
+function card_element_trackertable(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var trackers = Math.floor(params.length / 2);
+    var headers = "";
+    var cells = "";
+
+    for (var i = 0; i < trackers; ++i) {
+        headers += '<th class="card-stats-header">' + params[i * 2] + '</th>';
+        cells += '<td class="card-stats-cell"><span class="card-tracker-box"></span>/' + params[(i * 2) + 1] + '</td>';
+    }
+    
+    var result = "";
+    result += '<table class="card-stats' + card_font_size_class + '">';
+    result += '    <tbody><tr>';
+    result += headers;
+    result += '    </tr>';
+    result += '    <tr>';
+    result += cells;
+    result += '    </tr>';
+    result += '  </tbody>';
+    result += '</table>';
     return result;
 }
 
@@ -470,7 +493,8 @@ var card_element_generators = {
     disabled: card_element_empty,
     picture: card_element_picture,
     icon: card_element_inline_icon,
-    tracker: card_element_tracker
+    tracker: card_element_tracker,
+    trackertable: card_element_trackertable
 };
 
 // ============================================================================
